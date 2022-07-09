@@ -2,6 +2,14 @@
 
 value=($HOME/.local/share/project/projects-locations)
 
+help_command()
+{
+	echo "Usage: project [Name] [Route] [App (optional)]"
+	echo "-l --list	shows list of files"		
+	echo "-r --remove	removes file from the list"
+	echo "-h --help	shows this message"
+}
+
 case $1 in
 	-r | --remove)
 		search_destroy=$(cat $value	| grep ^$2)
@@ -16,10 +24,10 @@ case $1 in
 		cat $value
 		;;
 	-h | --help)
-		echo "Usage: project [Name] [Route] [App (optional)]"
-		echo "-l --list	shows list of files"
-		echo "-r --remove	removes file from the list"
-		echo "-h --help	shows this message"
+		help_command
+		;;
+	"")
+		help_command
 		;;
 	*)
 		search=$(cat $value	| grep -w ^$1)
