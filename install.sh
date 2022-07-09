@@ -3,7 +3,9 @@
 install() {
 	editor=$1
 	background=$2
-	mkdir $HOME/.local/share/project/
+	if [[ ! -e $HOME/.local/share/project ]]; then 
+		mkdir $HOME/.local/share/project/
+	fi
 	touch $HOME/.local/share/project/projects-locations
 	sed "s/nvim/$editor $background/g" project.sh >> project
 	chmod 744 project

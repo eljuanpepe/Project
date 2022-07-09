@@ -1,4 +1,4 @@
-#/usr/bin/bash
+#!/usr/bin/env bash
 
 value=($HOME/.local/share/project/projects-locations)
 
